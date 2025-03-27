@@ -1,0 +1,15 @@
+{% extends 'home.html' %}
+
+{% block title %}Profile - Alumni-Student Portal{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6 mt-6">
+    <h1 class="text-2xl font-bold mb-4">User Profile</h1>
+    <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Account Type:</strong> {% if user.alumni_profile %}Alumni{% else %}Student{% endif %}</p>
+
+    <a href="{% url 'edit_profile' %}" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Edit Profile</a>
+</div>
+{% endblock %}
